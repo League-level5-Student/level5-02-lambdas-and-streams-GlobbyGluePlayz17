@@ -8,25 +8,26 @@ public class LambdaMethods {
 		
 		// Here is an example of calling the printCustomMessage method with a lambda.
 		// This prints the passed in String 10 times.
-//		printCustomMessage((s)->{
-//			for(int i = 0; i < 10; i++) {
-//				System.out.println(s);
-//			}
-//		}, "repeat");
+		printCustomMessage((s)->{
+			for(int i = 0; i < 10; i++) {
+				System.out.println((i+1) + ". " + s);
+			}
+		}, "repeat");
 		
 		//2. Call the printCustonMessage method using a lambda so that the String prints backwards.
 		printCustomMessage((s)->{
 			String newS = "";
 			for(int i = s.length()-1; i >= 0; i--) {
-				s += s.charAt(i);
+/*newS, not s */ newS += s.charAt(i);
 			}
 			s = newS;
-		}, "racecar tacocat zoonooz");
+			System.out.println(s);
+		}, "racecar tacocat zoonooz andthistoconfirm:D");
 		//3. Call the printCustonMessage method using a lambda so that the String prints with a mix between upper an lower case characters.
 		printCustomMessage((s)->{
-			int thelettersdestinytellerifitllbeupperorlowercase = new Random().nextInt(1);
 			String newS = "";
 			for(int i = 0; i < s.length(); i++) {
+				int thelettersdestinytellerifitllbeupperorlowercase = new Random().nextInt(2); //2 not 1
 				Character c = s.charAt(i);
 				if (Character.isLetter(c)) {
 					if (thelettersdestinytellerifitllbeupperorlowercase == 0) {
@@ -34,9 +35,12 @@ public class LambdaMethods {
 					} else {
 						newS += s.charAt(i);
 					}
+				} else {
+					newS += s.charAt(i);
 				}
 			}
 			s = newS;
+			System.out.println(s);
 		}, "spooky scary skeletons");
 		//4. Call the printCustonMessage method using a lambda so that the String prints with a period in between each character.
 		printCustomMessage((s)->{
@@ -45,6 +49,7 @@ public class LambdaMethods {
 				newS += s.charAt(i) + ".";
 			}
 			s = newS;
+			System.out.println(s);
 		}, "TODAYS title");
 		//5. Call the printCustonMessage method using a lambda so that the String prints without any vowels.
 		printCustomMessage((s)->{
@@ -55,6 +60,7 @@ public class LambdaMethods {
 				}
 			}
 			s = newS;
+			System.out.println(s);
 		}, "Supercalifragilisticexpielidocious");
 	}
 	
